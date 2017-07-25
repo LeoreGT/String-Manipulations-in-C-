@@ -6,9 +6,9 @@
 
 #define STARTER_SIZE 0
 
-#define I_AM_LESSER -1 //TODO: change to static const int 
-#define STRINGS_ARE_EQUAL 0
-#define I_AM_GREATER 1
+static const int lesser  = -1
+static const int equal   = 0
+static const int greater = 1
 
 using namespace std;
 
@@ -49,7 +49,7 @@ String_t::String_t(const String_t& _string)
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 
-char* String_t::createFrom(char* string)//TODO: can add m_stringSize in here too 
+char* String_t::createFrom(char* string)//TODO: can add m_stringSize in here too
 {
 	char* temp = (char*) malloc(strlen(string) + 1);
 	strcpy(temp, string);
@@ -79,14 +79,14 @@ void String_t::resizeString(int incomingSize)
 
 void String_t::setString(const char* newString)
 {
-  resizeString(strlen(newString) + 1);
+  resizeString(strlen(newString) + );
 	strcpy(this->m_string, newString);
   this->m_stringSize = (strlen(newString));
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-const char*  String_t::getString() const
+const char* String_t::getString() const
 {
 	return this->m_string;
 }
@@ -96,7 +96,7 @@ const char*  String_t::getString() const
 int String_t::compareStrings(const String_t& string) const
 {
 	int comparison;
-  comparison = strcmp(this->m_string, string.getString()); /* 'this' can be used in c++ */
+  comparison = strcmp(this->m_string, string.getString());
   if (comparison == 0)
   {
     return STRINGS_ARE_EQUAL;
@@ -113,12 +113,11 @@ void String_t::printString() const
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-const String_t& String_t::operator=(const String_t& incomingString) 
+const String_t& String_t::operator=(const String_t& incomingString)
 {
   if(&incomingString != this)
   {
-    resizeString(incomingString.getLength() + 1);
-
+    resizeString(incomingString.getLength());
     strcpy(this->m_string, incomingString.getString());
   }
 

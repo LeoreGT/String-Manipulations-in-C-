@@ -14,7 +14,7 @@ class String_t
     ~String_t();
     String_t(const char* string);
     String_t(const String_t& string);
-    const String_t& operator=(const String_t& _str); 
+    const String_t& operator=(const String_t& _str);
 		int 	          getLength() const; /* const outside because it recieves but doesn't alter the struct data */
     void            resizeString(int incomingSize); /* acts as a reallocator if it's needed  TODO can be private */
 		void				    setString(const char* string);
