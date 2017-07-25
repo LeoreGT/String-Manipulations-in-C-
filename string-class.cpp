@@ -6,9 +6,9 @@
 
 #define STARTER_SIZE 0
 
-static const int lesser  = -1
-static const int equal   = 0
-static const int greater = 1
+#define I_AM_LESSER -1
+#define STRINGS_ARE_EQUAL  0
+#define I_AM_GREATER 1
 
 using namespace std;
 
@@ -79,7 +79,7 @@ void String_t::resizeString(int incomingSize)
 
 void String_t::setString(const char* newString)
 {
-  resizeString(strlen(newString) + );
+  resizeString(strlen(newString));
 	strcpy(this->m_string, newString);
   this->m_stringSize = (strlen(newString));
 }
